@@ -5,11 +5,10 @@ node_modules/
 /playwright/.cache/
 .env
 package-lock.json
-yarn.lock
 *.log
 .DS_Store
 
-# Yarn
+# Yarn - Keep yarn.lock for reproducible builds
 .yarn/*
 !.yarn/patches
 !.yarn/plugins

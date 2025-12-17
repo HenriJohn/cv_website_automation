@@ -51,7 +51,7 @@ export class LandingPage {
   }
 
   async goto() {
-    await this.page.goto('/');
+    await this.page.goto('/cv_website/');
   }
 
   async navigateToShowcase() {

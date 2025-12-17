@@ -15,7 +15,7 @@ export default defineConfig({
     ['json', { outputFile: 'test-results/results.json' }],
   ],
   use: {
-    baseURL: 'https://henrijohn.github.io/cv_website/',
+    baseURL: 'https://henrijohn.github.io',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',

@@ -14,7 +14,7 @@ test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, ()
     await showcasePage.goto();
   });
 
-  test('verify successful form submission with valid data', async () => {
+  test('verify successful form submission with valid data', async ({ page }) => {
     // Generate test data
     const username = generateUsername();
     const email = generateEmail();
@@ -37,7 +37,7 @@ test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, ()
     await expect(showcasePage.formSuccessMessage).toContainText('Form submitted successfully!');
   });
 
-  test('verify username validation - too short', async () => {
+  test('verify username validation - too short', async ({ page }) => {
     // Enter username with less than 3 characters
     await showcasePage.usernameField.fill('ab');
     await showcasePage.usernameField.blur();
@@ -47,7 +47,7 @@ test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, ()
     await expect(showcasePage.usernameError).toContainText('Username must be at least 3 characters');
   });
 
-  test('verify email validation - invalid format', async () => {
+  test('verify email validation - invalid format', async ({ page }) => {
     // Test various invalid email formats
     const invalidEmails = [
       'invalid-email',
@@ -70,7 +70,7 @@ test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, ()
     }
   });
 
-  test('verify password validation - too short', async () => {
+  test('verify password validation - too short', async ({ page }) => {
     // Enter password with less than 8 characters
     await showcasePage.passwordField.fill('short');
     await showcasePage.passwordField.blur();
@@ -80,7 +80,7 @@ test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, ()
     await expect(showcasePage.passwordError).toContainText('Password must be at least 8 characters');
   });
 
-  test('verify form fields are required', async () => {
+  test('verify form fields are required', async ({ page }) => {
     // Try to submit empty form
     await showcasePage.submitForm();
 
@@ -91,7 +91,7 @@ test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, ()
     await expect(showcasePage.passwordField).toBeVisible();
   });
 
-  test('verify country dropdown options', async () => {
+  test('verify country dropdown options', async ({ page }) => {
     // Click country dropdown
     await showcasePage.countryDropdown.click();
 
@@ -107,7 +107,7 @@ test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, ()
     expect(selectedValue).toBe('Canada');
   });
 
-  test('verify terms and conditions checkbox', async () => {
+  test('verify terms and conditions checkbox', async ({ page }) => {
     // Verify checkbox is initially unchecked
     await expect(showcasePage.termsCheckbox).not.toBeChecked();
 
@@ -124,7 +124,7 @@ test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, ()
     await expect(showcasePage.termsCheckbox).not.toBeChecked();
   });
 
-  test('verify error messages disappear with valid input', async () => {
+  test('verify error messages disappear with valid input', async ({ page }) => {
     // Trigger username error
     await showcasePage.usernameField.fill('ab');
     await showcasePage.usernameField.blur();
@@ -156,7 +156,7 @@ test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, ()
     await expect(showcasePage.passwordError).not.toBeVisible();
   });
 
-  test('verify all form fields are visible and enabled', async () => {
+  test('verify all form fields are visible and enabled', async ({ page }) => {
     // Verify all form elements
     await expect(showcasePage.usernameField).toBeVisible();
     await expect(showcasePage.usernameField).toBeEnabled();

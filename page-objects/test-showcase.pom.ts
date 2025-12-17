@@ -119,7 +119,7 @@ export class TestShowcasePage {
   }
 
   async goto() {
-    await this.page.goto('/#/test-showcase');
+    await this.page.goto('/cv_website/#/test-showcase');
   }
 
   async backToCV() {

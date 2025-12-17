@@ -38,7 +38,7 @@ test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, ()
     await expect(page.getByRole('heading', { name: '🎯 Test Automation Showcase' })).toBeVisible();
   });
 
-  test('verify explorer panel files are visible', async () => {
+  test('verify explorer panel files are visible', async ({ page }) => {
     // Verify all files in the explorer are visible
     await expect(landingPage.readmeFile).toBeVisible();
     await expect(landingPage.skillsFile).toBeVisible();
@@ -48,7 +48,7 @@ test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, ()
     await expect(landingPage.downloadCvFile).toBeVisible();
   });
 
-  test('verify theme toggle functionality', async () => {
+  test('verify theme toggle functionality', async ({ page }) => {
     // Click theme toggle
     await landingPage.toggleTheme();
 
@@ -59,7 +59,7 @@ test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, ()
     await expect(landingPage.themeToggle).toBeVisible();
   });
 
-  test('verify sidebar toggle functionality', async () => {
+  test('verify sidebar toggle functionality', async ({ page }) => {
     // Click sidebar toggle
     await landingPage.toggleSidebar();
 
@@ -73,7 +73,7 @@ test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, ()
     await expect(landingPage.explorerPanel).toBeVisible();
   });
 
-  test('verify terminal is interactive', async () => {
+  test('verify terminal is interactive', async ({ page }) => {
     // Verify terminal input is visible
     await expect(landingPage.terminalInput).toBeVisible();
 
@@ -84,7 +84,7 @@ test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, ()
     await expect(landingPage.terminalInput).toBeVisible();
   });
 
-  test.skip('verify get started and quick command sections', async () => {
+  test.skip('verify get started and quick command sections', async ({ page }) => {
     // TODO: These elements are dynamically loaded and need special handling
     // Skipping for now to focus on showcase tests which are more stable
     await expect(landingPage.getStartedSection).toBeVisible();

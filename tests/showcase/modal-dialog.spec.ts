@@ -13,7 +13,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await showcasePage.goto();
   });
 
-  test('verify modal opens successfully', async () => {
+  test('verify modal opens successfully', async ({ page }) => {
     // Click open modal button
     await showcasePage.openModal();
 
@@ -24,7 +24,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await expect(showcasePage.modalDescription).toBeVisible();
   });
 
-  test('verify modal closes with cancel button', async () => {
+  test('verify modal closes with cancel button', async ({ page }) => {
     // Open modal
     await showcasePage.openModal();
     await expect(showcasePage.modalDialog).toBeVisible();
@@ -36,7 +36,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await expect(showcasePage.modalDialog).not.toBeVisible();
   });
 
-  test('verify modal closes with confirm button and shows success message', async () => {
+  test('verify modal closes with confirm button and shows success message', async ({ page }) => {
     // Open modal
     await showcasePage.openModal();
     await expect(showcasePage.modalDialog).toBeVisible();
@@ -52,7 +52,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await expect(showcasePage.modalSuccessMessage).toContainText('Modal action confirmed!');
   });
 
-  test('verify modal content and buttons', async () => {
+  test('verify modal content and buttons', async ({ page }) => {
     // Open modal
     await showcasePage.openModal();
 
@@ -67,7 +67,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await expect(showcasePage.modalConfirmButton).toBeEnabled();
   });
 
-  test('verify modal can be opened multiple times', async () => {
+  test('verify modal can be opened multiple times', async ({ page }) => {
     // Open and close modal first time
     await showcasePage.openModal();
     await expect(showcasePage.modalDialog).toBeVisible();

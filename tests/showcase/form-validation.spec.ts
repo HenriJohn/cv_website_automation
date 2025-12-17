@@ -9,7 +9,7 @@ dotenv.config();
 test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, () => {
   let showcasePage: TestShowcasePage;
 
-  test.beforeEach(async () => {
+  test.beforeEach(async ({ page }) => {
     showcasePage = new TestShowcasePage(page);
     await showcasePage.goto();
   });

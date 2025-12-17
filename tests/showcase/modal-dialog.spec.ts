@@ -8,7 +8,7 @@ dotenv.config();
 test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () => {
   let showcasePage: TestShowcasePage;
 
-  test.beforeEach(async () => {
+  test.beforeEach(async ({ page }) => {
     showcasePage = new TestShowcasePage(page);
     await showcasePage.goto();
   });
@@ -84,7 +84,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await expect(showcasePage.modalSuccessMessage).toBeVisible();
   });
 
-  test('verify modal overlay interaction', async () => {
+  test('verify modal overlay interaction', async ({ page }) => {
     // Open modal
     await showcasePage.openModal();
     await expect(showcasePage.modalDialog).toBeVisible();
@@ -101,7 +101,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     // This test documents the behavior
   });
 
-  test('verify keyboard navigation in modal', async () => {
+  test('verify keyboard navigation in modal', async ({ page }) => {
     // Open modal
     await showcasePage.openModal();
     await expect(showcasePage.modalDialog).toBeVisible();

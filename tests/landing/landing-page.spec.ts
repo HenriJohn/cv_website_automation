@@ -7,12 +7,12 @@ dotenv.config();
 test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, () => {
   let landingPage: LandingPage;
 
-  test.beforeEach(async () => {
+  test.beforeEach(async ({ page }) => {
     landingPage = new LandingPage(page);
     await landingPage.goto();
   });
 
-  test('verify landing page loads with all elements', async () => {
+  test('verify landing page loads with all elements', async ({ page }) => {
     // Verify page title
     await expect(page).toHaveTitle(/Henri-John Plaatjies/);
 
@@ -27,7 +27,7 @@ test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, ()
     await expect(landingPage.explorerPanel).toBeVisible();
   });
 
-  test('navigate to test showcase page', async () => {
+  test('navigate to test showcase page', async ({ page }) => {
     // Click the View Showcase button
     await landingPage.navigateToShowcase();
 

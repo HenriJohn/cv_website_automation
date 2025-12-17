@@ -99,7 +99,7 @@ export async function waitForNetworkIdle(
   page: Page,
   timeout: number = 30000
 ): Promise<void> {
-  await page.waitForLoadState('networkidle', { timeout });
+  await page.waitForLoadState('load', { timeout });
 }
 
 /**

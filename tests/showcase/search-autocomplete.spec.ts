@@ -25,8 +25,8 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
     await showcasePage.searchFramework('Playwright');
 
     // Verify input value
-    const inputValue = await showcasePage.searchInput.inputValue();
-    expect(inputValue).toBe('Playwright');
+    const inputValue = showcasePage.searchInput;
+    await expect(inputValue).toHaveValue('Playwright');
   });
 
   test('verify search with partial text', async () => {
@@ -37,8 +37,8 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
     await showcasePage.page.waitForTimeout(500);
 
     // Verify search input has value
-    const inputValue = await showcasePage.searchInput.inputValue();
-    expect(inputValue).toBe('Play');
+    const inputValue = showcasePage.searchInput;
+    await expect(inputValue).toHaveValue('Play');
   });
 
   test('verify search can be cleared', async () => {
@@ -46,15 +46,15 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
     await showcasePage.searchFramework('Cypress');
     
     // Verify input has value
-    let inputValue = await showcasePage.searchInput.inputValue();
-    expect(inputValue).toBe('Cypress');
+    let inputValue = showcasePage.searchInput;
+    await expect(inputValue).toHaveValue('Cypress');
 
     // Clear search
     await showcasePage.clearSearch();
 
     // Verify input is empty
-    inputValue = await showcasePage.searchInput.inputValue();
-    expect(inputValue).toBe('');
+    inputValue = showcasePage.searchInput;
+    await expect(inputValue).toHaveValue('');
   });
 
   test('verify search with different frameworks', async () => {
@@ -66,8 +66,8 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
       await showcasePage.page.waitForTimeout(300);
 
       // Verify input value
-      const inputValue = await showcasePage.searchInput.inputValue();
-      expect(inputValue).toBe(framework);
+      const inputValue = showcasePage.searchInput;
+      await expect(inputValue).toHaveValue(framework);
 
       // Clear for next iteration
       await showcasePage.clearSearch();
@@ -89,8 +89,8 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
       await showcasePage.page.waitForTimeout(300);
 
       // Verify input accepts special characters
-      const inputValue = await showcasePage.searchInput.inputValue();
-      expect(inputValue).toBe(search);
+      const inputValue = showcasePage.searchInput;
+      await expect(inputValue).toHaveValue(search);
 
       await showcasePage.clearSearch();
     }
@@ -101,8 +101,8 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
     await showcasePage.searchFramework('123');
     
     // Verify input value
-    const inputValue = await showcasePage.searchInput.inputValue();
-    expect(inputValue).toBe('123');
+    const inputValue = showcasePage.searchInput;
+    await expect(inputValue).toHaveValue('123');
   });
 
   test('verify search with long text', async () => {
@@ -111,8 +111,8 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
     await showcasePage.searchFramework(longText);
     
     // Verify input accepts long text
-    const inputValue = await showcasePage.searchInput.inputValue();
-    expect(inputValue).toBe(longText);
+    const inputValue = showcasePage.searchInput;
+    await expect(inputValue).toHaveValue(longText);
   });
 
   test('verify search input focus', async () => {
@@ -126,7 +126,7 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
     await showcasePage.page.keyboard.type('Selenium');
 
     // Verify text was entered
-    const inputValue = await showcasePage.searchInput.inputValue();
-    expect(inputValue).toBe('Selenium');
+    const inputValue = showcasePage.searchInput;
+    await expect(inputValue).toHaveValue('Selenium');
   });
 });

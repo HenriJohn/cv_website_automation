@@ -103,8 +103,8 @@ test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, ()
     await showcasePage.countryDropdown.selectOption('Canada');
 
     // Verify selection
-    const selectedValue = await showcasePage.countryDropdown.inputValue();
-    expect(selectedValue).toBe('Canada');
+    const selectedValue = showcasePage.countryDropdown;
+    await expect(selectedValue).toHaveValue('Canada');
   });
 
   test('verify terms and conditions checkbox', async () => {
@@ -133,7 +133,7 @@ test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, ()
     // Fix with valid input
     await showcasePage.usernameField.fill('validusername');
     await showcasePage.usernameField.blur();
-    await expect(showcasePage.usernameError).not.toBeVisible();
+    await expect(showcasePage.usernameError).toBeHidden();
 
     // Trigger email error
     await showcasePage.emailField.fill('invalid');
@@ -143,7 +143,7 @@ test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, ()
     // Fix with valid input
     await showcasePage.emailField.fill('valid@email.com');
     await showcasePage.emailField.blur();
-    await expect(showcasePage.emailError).not.toBeVisible();
+    await expect(showcasePage.emailError).toBeHidden();
 
     // Trigger password error
     await showcasePage.passwordField.fill('short');
@@ -153,7 +153,7 @@ test.describe('Test Showcase - Form Validation', { tag: '@showcase_stable' }, ()
     // Fix with valid input
     await showcasePage.passwordField.fill('ValidPassword123!');
     await showcasePage.passwordField.blur();
-    await expect(showcasePage.passwordError).not.toBeVisible();
+    await expect(showcasePage.passwordError).toBeHidden();
   });
 
   test('verify all form fields are visible and enabled', async () => {

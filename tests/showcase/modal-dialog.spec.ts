@@ -33,7 +33,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await showcasePage.closeModalWithCancel();
 
     // Verify modal is closed
-    await expect(showcasePage.modalDialog).not.toBeVisible();
+    await expect(showcasePage.modalDialog).toBeHidden();
   });
 
   test('verify modal closes with confirm button and shows success message', async () => {
@@ -45,7 +45,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await showcasePage.closeModalWithConfirm();
 
     // Verify modal is closed
-    await expect(showcasePage.modalDialog).not.toBeVisible();
+    await expect(showcasePage.modalDialog).toBeHidden();
 
     // Verify success message
     await expect(showcasePage.modalSuccessMessage).toBeVisible();
@@ -72,13 +72,13 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await showcasePage.openModal();
     await expect(showcasePage.modalDialog).toBeVisible();
     await showcasePage.closeModalWithCancel();
-    await expect(showcasePage.modalDialog).not.toBeVisible();
+    await expect(showcasePage.modalDialog).toBeHidden();
 
     // Open and close modal second time
     await showcasePage.openModal();
     await expect(showcasePage.modalDialog).toBeVisible();
     await showcasePage.closeModalWithConfirm();
-    await expect(showcasePage.modalDialog).not.toBeVisible();
+    await expect(showcasePage.modalDialog).toBeHidden();
 
     // Verify success message from second close
     await expect(showcasePage.modalSuccessMessage).toBeVisible();

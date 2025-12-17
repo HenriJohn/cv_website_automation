@@ -28,26 +28,26 @@ export class LandingPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.logo = page.getByRole('img', { name: 'HJP' });
+    this.logo = page.getByTestId('vscode-logo');
     this.pageTitle = page.getByText('Henri-John Plaatjies - Senior Test Automation Engineer');
     this.pageHeading = page.getByRole('heading', { name: 'Henri-John Plaatjies' });
     this.subtitle = page.getByText('Senior Test Automation Engineer');
-    this.viewShowcaseButton = page.locator('div').filter({ hasText: /^ViewShowcase$/ }).nth(1);
-    this.diamondIcon = page.locator('div').filter({ hasText: /^ViewShowcase$/ }).first();
-    this.getStartedSection = page.getByText('Get Started', { exact: false });
-    this.getStartedText = page.getByText('Select a file from the explorer', { exact: false });
-    this.quickCommandSection = page.getByText('Quick Command', { exact: false });
-    this.quickCommandText = page.getByText('Type help in terminal', { exact: false });
-    this.terminalInput = page.getByRole('textbox');
-    this.explorerPanel = page.locator('text=Explorer');
-    this.readmeFile = page.locator('text=README.md');
-    this.skillsFile = page.locator('text=skills.json');
-    this.experienceFolder = page.locator('text=experience');
-    this.educationFile = page.locator('text=education.md');
-    this.contactFile = page.locator('text=contact.env');
-    this.downloadCvFile = page.locator('text=download-cv.pdf');
-    this.themeToggle = page.getByRole('generic', { name: 'Switch to light theme' });
-    this.sidebarToggle = page.getByRole('generic', { name: 'Toggle Sidebar' });
+    this.viewShowcaseButton = page.getByRole('link', { name: /showcase/i });
+    this.diamondIcon = this.viewShowcaseButton;
+    this.getStartedSection = page.getByText('Get Started');
+    this.getStartedText = page.getByText('Select a file from the explorer');
+    this.quickCommandSection = page.getByText('Quick Command');
+    this.quickCommandText = page.getByText('Type help in terminal');
+    this.terminalInput = page.getByTestId('terminal-input');
+    this.explorerPanel = page.getByTestId('sidebar');
+    this.readmeFile = page.getByTestId('file-tree-item-readme-md');
+    this.skillsFile = page.getByTestId('file-tree-item-skills-json');
+    this.experienceFolder = page.getByTestId('file-tree-item-experience');
+    this.educationFile = page.getByTestId('file-tree-item-education-md');
+    this.contactFile = page.getByTestId('file-tree-item-contact-env');
+    this.downloadCvFile = page.getByTestId('file-tree-item-download-cv-pdf');
+    this.themeToggle = page.getByTestId('toggle-theme-btn');
+    this.sidebarToggle = page.getByTestId('toggle-sidebar-btn');
   }
 
   async goto() {

@@ -74,37 +74,37 @@ export class TestShowcasePage {
 
     // Section 2: State Management
     this.stateManagementHeading = page.getByRole('heading', { name: '2. State Management' });
-    this.decrementButton = page.getByRole('button', { name: '-' });
-    this.incrementButton = page.getByRole('button', { name: '+' });
-    this.counterValue = page.locator('div').filter({ hasText: /^-0\+Reset$/ }).getByText('0').first();
-    this.resetButton = page.getByRole('button', { name: 'Reset' });
+    this.decrementButton = page.getByTestId('counter-decrement');
+    this.incrementButton = page.getByTestId('counter-increment');
+    this.counterValue = page.getByTestId('counter-value');
+    this.resetButton = page.getByTestId('counter-reset');
 
     // Section 3: Form Validation
     this.formValidationHeading = page.getByRole('heading', { name: '3. Form Validation' });
-    this.usernameField = page.getByPlaceholder('Enter username');
-    this.emailField = page.getByPlaceholder('Enter email');
-    this.passwordField = page.getByPlaceholder('Enter password');
-    this.countryDropdown = page.locator('select').filter({ hasText: 'Select a country' });
-    this.termsCheckbox = page.getByRole('checkbox', { name: 'I agree to the terms and conditions *' });
-    this.submitFormButton = page.getByRole('button', { name: 'Submit Form' });
-    this.usernameError = page.getByText('Username must be at least 3 characters');
-    this.emailError = page.getByText('Please enter a valid email address');
-    this.passwordError = page.getByText('Password must be at least 8 characters');
-    this.formSuccessMessage = page.getByText('Form submitted successfully!');
+    this.usernameField = page.getByTestId('form-username');
+    this.emailField = page.getByTestId('form-email');
+    this.passwordField = page.getByTestId('form-password');
+    this.countryDropdown = page.getByTestId('form-country');
+    this.termsCheckbox = page.getByTestId('form-terms');
+    this.submitFormButton = page.getByTestId('form-submit');
+    this.usernameError = page.getByTestId('error-username');
+    this.emailError = page.getByTestId('error-email');
+    this.passwordError = page.getByTestId('error-password');
+    this.formSuccessMessage = page.getByTestId('toast-notification');
 
     // Section 4: Search with Autocomplete
     this.searchHeading = page.getByRole('heading', { name: '4. Search with Autocomplete' });
-    this.searchInput = page.getByPlaceholder('Search test frameworks...');
+    this.searchInput = page.getByTestId('search-input');
     this.searchIcon = page.locator('svg').first();
-    this.autocompleteResults = page.locator('[class*="autocomplete"]');
+    this.autocompleteResults = page.getByTestId('search-results');
 
     // Section 5: Data Table
     this.dataTableHeading = page.getByRole('heading', { name: '5. Data Table (Sort & Filter)' });
-    this.allFilterButton = page.getByRole('button', { name: 'All' });
-    this.activeFilterButton = page.getByRole('button', { name: 'Active' });
-    this.inactiveFilterButton = page.getByRole('button', { name: 'Inactive' });
-    this.dataTable = page.getByRole('table');
-    this.tableNameHeader = page.getByRole('button', { name: 'Name ↑' });
+    this.allFilterButton = page.getByTestId('filter-all');
+    this.activeFilterButton = page.getByTestId('filter-active');
+    this.inactiveFilterButton = page.getByTestId('filter-inactive');
+    this.dataTable = page.getByTestId('data-table');
+    this.tableNameHeader = page.getByTestId('sort-name');
     this.tableRows = page.getByRole('row');
 
     // Section 6: Modal Dialog

@@ -8,12 +8,12 @@ dotenv.config();
 test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () => {
   let showcasePage: TestShowcasePage;
 
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async () => {
     showcasePage = new TestShowcasePage(page);
     await showcasePage.goto();
   });
 
-  test('verify modal opens successfully', async ({ page }) => {
+  test('verify modal opens successfully', async () => {
     // Click open modal button
     await showcasePage.openModal();
 
@@ -24,7 +24,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await expect(showcasePage.modalDescription).toBeVisible();
   });
 
-  test('verify modal closes with cancel button', async ({ page }) => {
+  test('verify modal closes with cancel button', async () => {
     // Open modal
     await showcasePage.openModal();
     await expect(showcasePage.modalDialog).toBeVisible();
@@ -36,7 +36,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await expect(showcasePage.modalDialog).not.toBeVisible();
   });
 
-  test('verify modal closes with confirm button and shows success message', async ({ page }) => {
+  test('verify modal closes with confirm button and shows success message', async () => {
     // Open modal
     await showcasePage.openModal();
     await expect(showcasePage.modalDialog).toBeVisible();
@@ -52,7 +52,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await expect(showcasePage.modalSuccessMessage).toContainText('Modal action confirmed!');
   });
 
-  test('verify modal content and buttons', async ({ page }) => {
+  test('verify modal content and buttons', async () => {
     // Open modal
     await showcasePage.openModal();
 
@@ -67,7 +67,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await expect(showcasePage.modalConfirmButton).toBeEnabled();
   });
 
-  test('verify modal can be opened multiple times', async ({ page }) => {
+  test('verify modal can be opened multiple times', async () => {
     // Open and close modal first time
     await showcasePage.openModal();
     await expect(showcasePage.modalDialog).toBeVisible();
@@ -84,7 +84,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     await expect(showcasePage.modalSuccessMessage).toBeVisible();
   });
 
-  test('verify modal overlay interaction', async ({ page }) => {
+  test('verify modal overlay interaction', async () => {
     // Open modal
     await showcasePage.openModal();
     await expect(showcasePage.modalDialog).toBeVisible();
@@ -101,7 +101,7 @@ test.describe('Test Showcase - Modal Dialog', { tag: '@showcase_stable' }, () =>
     // This test documents the behavior
   });
 
-  test('verify keyboard navigation in modal', async ({ page }) => {
+  test('verify keyboard navigation in modal', async () => {
     // Open modal
     await showcasePage.openModal();
     await expect(showcasePage.modalDialog).toBeVisible();

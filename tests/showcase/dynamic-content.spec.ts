@@ -8,12 +8,12 @@ dotenv.config();
 test.describe('Test Showcase - Dynamic Content Loading', { tag: '@showcase_stable' }, () => {
   let showcasePage: TestShowcasePage;
 
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async () => {
     showcasePage = new TestShowcasePage(page);
     await showcasePage.goto();
   });
 
-  test('verify dynamic content loads successfully', async ({ page }) => {
+  test('verify dynamic content loads successfully', async () => {
     // Verify button is visible and enabled
     await expect(showcasePage.loadDynamicContentButton).toBeVisible();
     await expect(showcasePage.loadDynamicContentButton).toBeEnabled();
@@ -36,7 +36,7 @@ test.describe('Test Showcase - Dynamic Content Loading', { tag: '@showcase_stabl
     await expect(showcasePage.loadDynamicContentButton).toBeEnabled();
   });
 
-  test('verify loading state displays correctly', async ({ page }) => {
+  test('verify loading state displays correctly', async () => {
     // Click the button
     await showcasePage.loadDynamicContentButton.click();
 
@@ -50,7 +50,7 @@ test.describe('Test Showcase - Dynamic Content Loading', { tag: '@showcase_stabl
     await expect(showcasePage.loadDynamicContentButton).toBeDisabled();
   });
 
-  test('verify multiple dynamic content loads', async ({ page }) => {
+  test('verify multiple dynamic content loads', async () => {
     // Load content first time
     await showcasePage.loadDynamicContent();
     await expect(showcasePage.dynamicContentText).toBeVisible();

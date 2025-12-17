@@ -8,12 +8,12 @@ dotenv.config();
 test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stable' }, () => {
   let showcasePage: TestShowcasePage;
 
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async () => {
     showcasePage = new TestShowcasePage(page);
     await showcasePage.goto();
   });
 
-  test('verify search input is visible and functional', async ({ page }) => {
+  test('verify search input is visible and functional', async () => {
     // Verify search input
     await expect(showcasePage.searchInput).toBeVisible();
     await expect(showcasePage.searchInput).toBeEnabled();
@@ -29,7 +29,7 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
     expect(inputValue).toBe('Playwright');
   });
 
-  test('verify search with partial text', async ({ page }) => {
+  test('verify search with partial text', async () => {
     // Search for partial text
     await showcasePage.searchFramework('Play');
 
@@ -41,7 +41,7 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
     expect(inputValue).toBe('Play');
   });
 
-  test('verify search can be cleared', async ({ page }) => {
+  test('verify search can be cleared', async () => {
     // Type in search
     await showcasePage.searchFramework('Cypress');
     
@@ -57,7 +57,7 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
     expect(inputValue).toBe('');
   });
 
-  test('verify search with different frameworks', async ({ page }) => {
+  test('verify search with different frameworks', async () => {
     const frameworks = ['Selenium', 'Jest', 'Cypress', 'Playwright', 'TestNG'];
 
     for (const framework of frameworks) {
@@ -75,12 +75,12 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
     }
   });
 
-  test('verify search icon is visible', async ({ page }) => {
+  test('verify search icon is visible', async () => {
     // Verify search icon
     await expect(showcasePage.searchIcon).toBeVisible();
   });
 
-  test('verify search with special characters', async ({ page }) => {
+  test('verify search with special characters', async () => {
     // Test search with special characters
     const specialSearches = ['Test@', 'Frame#work', 'Auto-mation'];
 
@@ -96,7 +96,7 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
     }
   });
 
-  test('verify search with numbers', async ({ page }) => {
+  test('verify search with numbers', async () => {
     // Search with numbers
     await showcasePage.searchFramework('123');
     
@@ -105,7 +105,7 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
     expect(inputValue).toBe('123');
   });
 
-  test('verify search with long text', async ({ page }) => {
+  test('verify search with long text', async () => {
     // Search with long text
     const longText = 'This is a very long search query to test the input field behavior';
     await showcasePage.searchFramework(longText);
@@ -115,7 +115,7 @@ test.describe('Test Showcase - Search with Autocomplete', { tag: '@showcase_stab
     expect(inputValue).toBe(longText);
   });
 
-  test('verify search input focus', async ({ page }) => {
+  test('verify search input focus', async () => {
     // Click on search input
     await showcasePage.searchInput.click();
 

@@ -7,12 +7,12 @@ dotenv.config();
 test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, () => {
   let landingPage: LandingPage;
 
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async () => {
     landingPage = new LandingPage(page);
     await landingPage.goto();
   });
 
-  test('verify landing page loads with all elements', async ({ page }) => {
+  test('verify landing page loads with all elements', async () => {
     // Verify page title
     await expect(page).toHaveTitle(/Henri-John Plaatjies/);
 
@@ -27,7 +27,7 @@ test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, ()
     await expect(landingPage.explorerPanel).toBeVisible();
   });
 
-  test('navigate to test showcase page', async ({ page }) => {
+  test('navigate to test showcase page', async () => {
     // Click the View Showcase button
     await landingPage.navigateToShowcase();
 
@@ -38,7 +38,7 @@ test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, ()
     await expect(page.getByRole('heading', { name: '🎯 Test Automation Showcase' })).toBeVisible();
   });
 
-  test('verify explorer panel files are visible', async ({ page }) => {
+  test('verify explorer panel files are visible', async () => {
     // Verify all files in the explorer are visible
     await expect(landingPage.readmeFile).toBeVisible();
     await expect(landingPage.skillsFile).toBeVisible();
@@ -48,7 +48,7 @@ test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, ()
     await expect(landingPage.downloadCvFile).toBeVisible();
   });
 
-  test('verify theme toggle functionality', async ({ page }) => {
+  test('verify theme toggle functionality', async () => {
     // Click theme toggle
     await landingPage.toggleTheme();
 
@@ -59,7 +59,7 @@ test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, ()
     await expect(landingPage.themeToggle).toBeVisible();
   });
 
-  test('verify sidebar toggle functionality', async ({ page }) => {
+  test('verify sidebar toggle functionality', async () => {
     // Click sidebar toggle
     await landingPage.toggleSidebar();
 
@@ -73,7 +73,7 @@ test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, ()
     await expect(landingPage.explorerPanel).toBeVisible();
   });
 
-  test('verify terminal is interactive', async ({ page }) => {
+  test('verify terminal is interactive', async () => {
     // Verify terminal input is visible
     await expect(landingPage.terminalInput).toBeVisible();
 
@@ -84,7 +84,7 @@ test.describe('Landing Page - Navigation and UI', { tag: '@landing_stable' }, ()
     await expect(landingPage.terminalInput).toBeVisible();
   });
 
-  test.skip('verify get started and quick command sections', async ({ page }) => {
+  test.skip('verify get started and quick command sections', async () => {
     // TODO: These elements are dynamically loaded and need special handling
     // Skipping for now to focus on showcase tests which are more stable
     await expect(landingPage.getStartedSection).toBeVisible();

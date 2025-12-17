@@ -13,7 +13,7 @@ test.describe('Test Showcase - Data Table', { tag: '@showcase_stable' }, () => {
     await showcasePage.goto();
   });
 
-  test('verify data table displays all rows by default', , async () => {
+  test('verify data table displays all rows by default', async () => {
     // Verify table is visible
     await expect(showcasePage.dataTable).toBeVisible();
 
@@ -29,7 +29,7 @@ test.describe('Test Showcase - Data Table', { tag: '@showcase_stable' }, () => {
     await expect(showcasePage.dataTable).toContainText('TestNG');
   });
 
-  test('verify filter by active status', , async () => {
+  test('verify filter by active status', async () => {
     // Click Active filter
     await showcasePage.filterTableByStatus('Active');
 
@@ -44,13 +44,13 @@ test.describe('Test Showcase - Data Table', { tag: '@showcase_stable' }, () => {
 
     // Verify inactive item is not shown
     const tableText = await showcasePage.dataTable.textContent();
-    const hasTestNG = tableText?.includes('TestNG');
+    const _hasTestNG = tableText?.includes('TestNG');
     
     // TestNG should either not appear or appear with Active status
     // (depends on implementation)
   });
 
-  test('verify filter by inactive status', , async () => {
+  test('verify filter by inactive status', async () => {
     // Click Inactive filter
     await showcasePage.filterTableByStatus('Inactive');
 
@@ -65,7 +65,7 @@ test.describe('Test Showcase - Data Table', { tag: '@showcase_stable' }, () => {
     expect(rowCount).toBeLessThan(5);
   });
 
-  test('verify filter by all status', , async () => {
+  test('verify filter by all status', async () => {
     // First filter by Active
     await showcasePage.filterTableByStatus('Active');
     await showcasePage.page.waitForTimeout(500);
@@ -79,7 +79,7 @@ test.describe('Test Showcase - Data Table', { tag: '@showcase_stable' }, () => {
     expect(rowCount).toBe(5);
   });
 
-  test('verify table sorting by name', , async () => {
+  test('verify table sorting by name', async () => {
     // Get initial order
     const initialRows = await showcasePage.dataTable.locator('tbody tr').allTextContents();
 
@@ -95,7 +95,7 @@ test.describe('Test Showcase - Data Table', { tag: '@showcase_stable' }, () => {
     expect(sortedRows.length).toBe(initialRows.length);
   });
 
-  test('verify table headers are visible', , async () => {
+  test('verify table headers are visible', async () => {
     // Verify all column headers
     await expect(showcasePage.dataTable.getByText('ID')).toBeVisible();
     await expect(showcasePage.tableNameHeader).toBeVisible();
@@ -103,7 +103,7 @@ test.describe('Test Showcase - Data Table', { tag: '@showcase_stable' }, () => {
     await expect(showcasePage.dataTable.getByText('Status')).toBeVisible();
   });
 
-  test('verify table data structure', , async () => {
+  test('verify table data structure', async () => {
     // Verify first row data (Selenium WebDriver)
     const firstRow = showcasePage.dataTable.locator('tbody tr').first();
     await expect(firstRow).toContainText('1');
@@ -112,7 +112,7 @@ test.describe('Test Showcase - Data Table', { tag: '@showcase_stable' }, () => {
     await expect(firstRow).toContainText('Active');
   });
 
-  test('verify filter buttons are visible and functional', , async () => {
+  test('verify filter buttons are visible and functional', async () => {
     // Verify all filter buttons
     await expect(showcasePage.allFilterButton).toBeVisible();
     await expect(showcasePage.allFilterButton).toBeEnabled();
@@ -134,7 +134,7 @@ test.describe('Test Showcase - Data Table', { tag: '@showcase_stable' }, () => {
     await showcasePage.page.waitForTimeout(300);
   });
 
-  test('verify table categories', , async () => {
+  test('verify table categories', async () => {
     // Verify different categories are present
     await expect(showcasePage.dataTable).toContainText('Browser Automation');
     await expect(showcasePage.dataTable).toContainText('E2E Testing');

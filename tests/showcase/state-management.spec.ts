@@ -13,7 +13,7 @@ test.describe('Test Showcase - State Management', { tag: '@showcase_stable' }, (
     await showcasePage.goto();
   });
 
-  test('verify counter increments correctly', , async () => {
+  test('verify counter increments correctly', async () => {
     // Verify initial state
     const initialValue = await showcasePage.getCounterValue();
     expect(initialValue).toBe('0');
@@ -27,7 +27,7 @@ test.describe('Test Showcase - State Management', { tag: '@showcase_stable' }, (
     await expect(showcasePage.counterValue).toContainText('5');
   });
 
-  test('verify counter decrements correctly', , async () => {
+  test('verify counter decrements correctly', async () => {
     // First increment to have a positive value
     await showcasePage.incrementCounter(5);
     await expect(showcasePage.counterValue).toContainText('5');
@@ -41,7 +41,7 @@ test.describe('Test Showcase - State Management', { tag: '@showcase_stable' }, (
     await expect(showcasePage.counterValue).toContainText('1');
   });
 
-  test('verify counter can go negative', , async () => {
+  test('verify counter can go negative', async () => {
     // Start at 0
     const initialValue = await showcasePage.getCounterValue();
     expect(initialValue).toBe('0');
@@ -51,7 +51,7 @@ test.describe('Test Showcase - State Management', { tag: '@showcase_stable' }, (
     await expect(showcasePage.counterValue).toContainText('-3');
   });
 
-  test('verify reset button resets counter to zero', , async () => {
+  test('verify reset button resets counter to zero', async () => {
     // Increment counter
     await showcasePage.incrementCounter(7);
     await expect(showcasePage.counterValue).toContainText('7');
@@ -69,7 +69,7 @@ test.describe('Test Showcase - State Management', { tag: '@showcase_stable' }, (
     await expect(showcasePage.counterValue).toContainText('0');
   });
 
-  test('verify rapid increment and decrement', , async () => {
+  test('verify rapid increment and decrement', async () => {
     // Rapidly increment
     await showcasePage.incrementCounter(10);
     await expect(showcasePage.counterValue).toContainText('10');
@@ -83,7 +83,7 @@ test.describe('Test Showcase - State Management', { tag: '@showcase_stable' }, (
     await expect(showcasePage.counterValue).toContainText('0');
   });
 
-  test('verify all buttons are visible and enabled', , async () => {
+  test('verify all buttons are visible and enabled', async () => {
     // Verify all state management buttons
     await expect(showcasePage.incrementButton).toBeVisible();
     await expect(showcasePage.incrementButton).toBeEnabled();

@@ -1,0 +1,32 @@
+{
+  "title": "Navigate to Test Showcase Page",
+  "description": "Verify that clicking the 'View Showcase' button navigates to the test showcase page.",
+  "preconditions": "User is on the landing page.",
+  "severity": 4,
+  "priority": 3,
+  "status": 1,
+  "behavior": 1,
+  "type": 1,
+  "layer": 1,
+  "is_flaky": 0,
+  "automation": 2,
+  "suite_id": 100,
+  "steps": [
+    {
+      "action": "Click the 'View Showcase' button with diamond icon",
+      "expected_result": "The page navigates to the test showcase page"
+    },
+    {
+      "action": "Verify the URL contains '#/test-showcase'",
+      "expected_result": "The URL is updated to include the showcase route"
+    },
+    {
+      "action": "Verify the page heading '🎯 Test Automation Showcase' is visible",
+      "expected_result": "The showcase page heading is displayed"
+    },
+    {
+      "action": "Verify the 'Back to CV' button is visible",
+      "expected_result": "The back button is displayed at the top"
+    }
+  ]
+}

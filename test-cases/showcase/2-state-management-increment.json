@@ -1,0 +1,32 @@
+{
+  "title": "State Management - Increment Counter",
+  "description": "Verify that the counter increments correctly when the + button is clicked.",
+  "preconditions": "User is on the test showcase page and counter is at 0.",
+  "severity": 3,
+  "priority": 2,
+  "status": 1,
+  "behavior": 1,
+  "type": 1,
+  "layer": 1,
+  "is_flaky": 0,
+  "automation": 2,
+  "suite_id": 101,
+  "steps": [
+    {
+      "action": "Verify the initial counter value is 0",
+      "expected_result": "The counter displays '0'"
+    },
+    {
+      "action": "Click the '+' button once",
+      "expected_result": "The counter increments to '1'"
+    },
+    {
+      "action": "Click the '+' button four more times",
+      "expected_result": "The counter increments to '5'"
+    },
+    {
+      "action": "Verify the counter value is correctly displayed",
+      "expected_result": "The counter shows '5'"
+    }
+  ]
+}

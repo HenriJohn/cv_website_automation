@@ -1,0 +1,48 @@
+{
+  "title": "Form Validation - Successful Submission",
+  "description": "Verify that the form submits successfully with valid data.",
+  "preconditions": "User is on the test showcase page.",
+  "severity": 4,
+  "priority": 3,
+  "status": 1,
+  "behavior": 1,
+  "type": 1,
+  "layer": 1,
+  "is_flaky": 0,
+  "automation": 2,
+  "suite_id": 101,
+  "steps": [
+    {
+      "action": "Enter a valid username in the 'Username' field",
+      "expected_result": "The username is accepted",
+      "data": "testuser123"
+    },
+    {
+      "action": "Enter a valid email in the 'Email' field",
+      "expected_result": "The email is accepted",
+      "data": "testuser@example.com"
+    },
+    {
+      "action": "Enter a valid password in the 'Password' field",
+      "expected_result": "The password is accepted",
+      "data": "SecurePass123!"
+    },
+    {
+      "action": "Select a country from the 'Country' dropdown",
+      "expected_result": "The country is selected",
+      "data": "United States"
+    },
+    {
+      "action": "Check the 'I agree to the terms and conditions' checkbox",
+      "expected_result": "The checkbox is checked"
+    },
+    {
+      "action": "Click the 'Submit Form' button",
+      "expected_result": "The form is submitted successfully"
+    },
+    {
+      "action": "Verify the success message appears",
+      "expected_result": "The message 'Form submitted successfully!' is displayed"
+    }
+  ]
+}

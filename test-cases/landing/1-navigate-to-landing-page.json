@@ -1,0 +1,40 @@
+{
+  "title": "Navigate to Landing Page",
+  "description": "Verify that the landing page loads successfully and displays all key elements.",
+  "preconditions": "User has internet connection and browser is open.",
+  "severity": 4,
+  "priority": 3,
+  "status": 1,
+  "behavior": 1,
+  "type": 1,
+  "layer": 1,
+  "is_flaky": 0,
+  "automation": 2,
+  "suite_id": 100,
+  "steps": [
+    {
+      "action": "Navigate to the landing page URL",
+      "expected_result": "The landing page loads successfully"
+    },
+    {
+      "action": "Verify the HJP logo is visible",
+      "expected_result": "The logo is displayed in the header"
+    },
+    {
+      "action": "Verify the page title 'Henri-John Plaatjies' is visible",
+      "expected_result": "The title is displayed prominently"
+    },
+    {
+      "action": "Verify the subtitle 'Senior Test Automation Engineer' is visible",
+      "expected_result": "The subtitle is displayed below the title"
+    },
+    {
+      "action": "Verify the 'View Showcase' button with diamond icon is visible",
+      "expected_result": "The button is displayed and clickable"
+    },
+    {
+      "action": "Verify the Explorer panel is visible",
+      "expected_result": "The file explorer is displayed on the left side"
+    }
+  ]
+}

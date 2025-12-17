@@ -1,0 +1,40 @@
+{
+  "title": "Data Table - Filter by Status",
+  "description": "Verify that the data table filters correctly by status (Active/Inactive).",
+  "preconditions": "User is on the test showcase page.",
+  "severity": 3,
+  "priority": 2,
+  "status": 1,
+  "behavior": 1,
+  "type": 1,
+  "layer": 1,
+  "is_flaky": 0,
+  "automation": 2,
+  "suite_id": 101,
+  "steps": [
+    {
+      "action": "Verify the data table is visible with all rows",
+      "expected_result": "The table displays 5 rows (Selenium, Playwright, Cypress, Jest, TestNG)"
+    },
+    {
+      "action": "Click the 'Active' filter button",
+      "expected_result": "The table displays only active items (4 rows)"
+    },
+    {
+      "action": "Verify only active items are shown",
+      "expected_result": "Selenium, Playwright, Cypress, and Jest are displayed"
+    },
+    {
+      "action": "Click the 'Inactive' filter button",
+      "expected_result": "The table displays only inactive items (1 row)"
+    },
+    {
+      "action": "Verify only inactive items are shown",
+      "expected_result": "Only TestNG is displayed"
+    },
+    {
+      "action": "Click the 'All' filter button",
+      "expected_result": "The table displays all 5 rows again"
+    }
+  ]
+}

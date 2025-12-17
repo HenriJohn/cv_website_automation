@@ -1,0 +1,59 @@
+{
+  "name": "hjp-cv-automation",
+  "version": "1.0.0",
+  "description": "Playwright automation framework for Henri-John Plaatjies CV website",
+  "main": "index.js",
+  "packageManager": "yarn@4.0.2",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:landing": "playwright test --grep @landing_stable",
+    "test:showcase": "playwright test --grep @showcase_stable",
+    "test:report": "playwright show-report",
+    "test:codegen": "playwright codegen https://henrijohn.github.io/cv_website/",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"**/*.{ts,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,json,md}\"",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky",
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "keywords": [
+    "playwright",
+    "automation",
+    "testing",
+    "e2e"
+  ],
+  "author": "Henri-John Plaatjies",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^22.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-playwright": "^1.6.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.0",
+    "playwright-qase-reporter": "^2.0.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.6.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.0.0"
+  }
+}

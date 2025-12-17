@@ -1,0 +1,46 @@
+{
+  "title": "Form Validation - Error Messages",
+  "description": "Verify that appropriate error messages are displayed for invalid form inputs.",
+  "preconditions": "User is on the test showcase page.",
+  "severity": 3,
+  "priority": 2,
+  "status": 1,
+  "behavior": 2,
+  "type": 1,
+  "layer": 1,
+  "is_flaky": 0,
+  "automation": 2,
+  "suite_id": 101,
+  "steps": [
+    {
+      "action": "Enter a username with less than 3 characters",
+      "expected_result": "Error message 'Username must be at least 3 characters' is displayed",
+      "data": "ab"
+    },
+    {
+      "action": "Clear the username field and enter a valid username",
+      "expected_result": "The error message disappears",
+      "data": "validuser"
+    },
+    {
+      "action": "Enter an invalid email address",
+      "expected_result": "Error message 'Please enter a valid email address' is displayed",
+      "data": "invalid-email"
+    },
+    {
+      "action": "Clear the email field and enter a valid email",
+      "expected_result": "The error message disappears",
+      "data": "valid@email.com"
+    },
+    {
+      "action": "Enter a password with less than 8 characters",
+      "expected_result": "Error message 'Password must be at least 8 characters' is displayed",
+      "data": "short"
+    },
+    {
+      "action": "Clear the password field and enter a valid password",
+      "expected_result": "The error message disappears",
+      "data": "ValidPass123!"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "title": "Dynamic Content Loading",
+  "description": "Verify that dynamic content loads successfully after clicking the load button.",
+  "preconditions": "User is on the test showcase page.",
+  "severity": 3,
+  "priority": 2,
+  "status": 1,
+  "behavior": 1,
+  "type": 1,
+  "layer": 1,
+  "is_flaky": 0,
+  "automation": 2,
+  "suite_id": 101,
+  "steps": [
+    {
+      "action": "Locate the 'Load Dynamic Content' button",
+      "expected_result": "The button is visible and enabled"
+    },
+    {
+      "action": "Click the 'Load Dynamic Content' button",
+      "expected_result": "The button shows 'Loading...' state with a spinner"
+    },
+    {
+      "action": "Wait for the loading to complete",
+      "expected_result": "After approximately 2 seconds, the loading state disappears"
+    },
+    {
+      "action": "Verify the dynamic content text appears",
+      "expected_result": "The text 'Dynamic content loaded successfully! This text appeared after 2 seconds.' is displayed"
+    },
+    {
+      "action": "Verify the button returns to its original state",
+      "expected_result": "The button shows 'Load Dynamic Content' again"
+    }
+  ]
+}

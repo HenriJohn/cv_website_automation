@@ -1,0 +1,36 @@
+{
+  "title": "Modal Dialog - Confirm Action",
+  "description": "Verify that the modal dialog opens and confirms successfully.",
+  "preconditions": "User is on the test showcase page.",
+  "severity": 3,
+  "priority": 2,
+  "status": 1,
+  "behavior": 1,
+  "type": 1,
+  "layer": 1,
+  "is_flaky": 0,
+  "automation": 2,
+  "suite_id": 101,
+  "steps": [
+    {
+      "action": "Click the 'Open Modal' button",
+      "expected_result": "The modal dialog appears with title 'Test Modal'"
+    },
+    {
+      "action": "Verify the modal description is visible",
+      "expected_result": "The text 'This is a modal dialog for testing overlay interactions and focus management.' is displayed"
+    },
+    {
+      "action": "Verify both 'Cancel' and 'Confirm' buttons are visible",
+      "expected_result": "Both buttons are displayed in the modal"
+    },
+    {
+      "action": "Click the 'Confirm' button",
+      "expected_result": "The modal closes"
+    },
+    {
+      "action": "Verify the success message appears",
+      "expected_result": "The message 'Modal action confirmed!' is displayed"
+    }
+  ]
+}

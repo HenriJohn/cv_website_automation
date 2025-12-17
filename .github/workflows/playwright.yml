@@ -2,9 +2,9 @@ name: Playwright Tests
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main, develop, master]
   pull_request:
-    branches: [main, develop]
+    branches: [main, develop, master]
   schedule:
     # Daily health check at 8:00 AM UTC (10:00 AM SAST)
     - cron: '0 8 * * *'
